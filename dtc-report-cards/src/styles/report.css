@@ -1,0 +1,186 @@
+/* Stats Container */
+.stats-container {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-6 my-8;
+}
+
+.stat-item {
+  @apply bg-[hsla(var(--dtc-light-green),0.1)] p-5 rounded-lg;
+}
+
+.stat-item h3 {
+  @apply text-lg font-semibold text-[hsl(var(--dtc-accent))] mb-2;
+}
+
+/* Stats Grid */
+.stats-grid {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-4 my-8;
+}
+
+.stat-box {
+  @apply bg-[hsla(var(--dtc-light-green),0.1)] p-5 rounded-lg text-center;
+}
+
+.stat-number {
+  @apply text-4xl font-bold text-[hsl(var(--dtc-accent))] mb-2;
+}
+
+/* Tables */
+.table-responsive {
+  @apply overflow-x-auto my-6;
+}
+
+.data-table {
+  @apply w-full border-collapse;
+}
+
+.data-table th {
+  @apply bg-[hsla(var(--dtc-background),0.8)] p-3 text-left font-semibold border-b border-[hsla(var(--dtc-accent),0.3)];
+}
+
+.data-table td {
+  @apply p-3 border-b border-[hsla(var(--dtc-text),0.1)];
+}
+
+.data-table tbody tr:hover {
+  @apply bg-[hsla(var(--dtc-light-green),0.05)];
+}
+
+/* Architecture Grid */
+.architecture-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 my-8;
+}
+
+.arch-card {
+  @apply bg-[hsla(var(--dtc-light-green),0.1)] p-5 rounded-lg;
+}
+
+.arch-card h3 {
+  @apply text-lg font-semibold text-[hsl(var(--dtc-accent))] mb-1;
+}
+
+.arch-card .percentage {
+  @apply text-sm font-medium text-[hsla(var(--dtc-text),0.7)] mb-3;
+}
+
+.arch-card .metrics {
+  @apply mt-4 space-y-1;
+}
+
+.arch-card .metric {
+  @apply flex justify-between items-center text-sm;
+}
+
+/* Component Grid */
+.component-grid {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-6 my-8;
+}
+
+.component-card {
+  @apply bg-[hsla(var(--dtc-muted-green),0.1)] p-5 rounded-lg;
+}
+
+.component-card h3 {
+  @apply text-lg font-semibold text-[hsl(var(--dtc-green))] mb-2;
+}
+
+.component-card .adoption {
+  @apply flex gap-3 text-sm mt-3 mb-2;
+}
+
+.component-card .adoption span:first-child {
+  @apply font-semibold text-[hsl(var(--dtc-accent))];
+}
+
+.component-card .adoption span:last-child {
+  @apply text-[hsla(var(--dtc-text),0.7)];
+}
+
+.component-card .top-solutions {
+  @apply mt-4;
+}
+
+.component-card .top-solutions h4 {
+  @apply text-sm font-medium mb-1;
+}
+
+.component-card .top-solutions ol {
+  @apply list-decimal list-inside text-sm;
+}
+
+/* Chart Placeholder */
+.chart-container {
+  @apply my-8 bg-[hsla(var(--dtc-light-green),0.1)] p-5 rounded-lg;
+}
+
+.chart-placeholder {
+  @apply h-48 flex items-center justify-center text-[hsla(var(--dtc-text),0.6)] text-sm italic;
+}
+
+/* Conclusion Points */
+.conclusion-points {
+  @apply space-y-6 my-6;
+}
+
+.conclusion-point h4 {
+  @apply text-lg font-semibold text-[hsl(var(--dtc-accent))] mb-2;
+}
+
+/* Blockquote */
+blockquote {
+  @apply my-6 pl-4 border-l-4 border-[hsl(var(--dtc-accent))] italic;
+}
+
+blockquote cite {
+  @apply block mt-2 not-italic text-sm text-[hsla(var(--dtc-text),0.7)];
+}
+
+/* Content HTML Injection */
+.content-area {
+  position: relative;
+}
+
+.content-html {
+  position: relative;
+}
+
+/* Using :before pseudo-element to inject HTML content */
+.content-html::before {
+  content: var(--content);
+  white-space: pre-wrap;
+  display: block;
+}
+
+/* Styled content elements - this affects the content injected via CSS */
+.content-html::before h1,
+.content-html::before h2,
+.content-html::before h3 {
+  @apply text-[hsl(var(--dtc-text))] font-bold my-4;
+}
+
+.content-html::before p {
+  @apply my-3;
+}
+
+.content-html::before ul,
+.content-html::before ol {
+  @apply my-3 ml-5;
+}
+
+.content-html::before li {
+  @apply my-1;
+}
+
+/* Adjust styles for hover effects */
+.card-section {
+  transition: opacity 0.5s ease;
+}
+
+/* Custom scroll animation */
+@keyframes pulse-scroll-indicator {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+
+.scroll-indicator {
+  animation: pulse-scroll-indicator 2s infinite;
+}

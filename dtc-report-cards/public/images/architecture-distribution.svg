@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="700" height="400" viewBox="0 0 700 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Styles -->
+  <style>
+    .chart-bg { fill: white; }
+    .axis { stroke: #e5e7e3; stroke-width: 1; }
+    .axis-label { font-family: sans-serif; font-size: 12px; fill: #223f3d; text-anchor: middle; }
+    .revenue-label { font-family: sans-serif; font-size: 11px; fill: #223f3d; text-anchor: end; }
+    .legend-text { font-family: sans-serif; font-size: 11px; fill: #223f3d; }
+    .monolithic { fill: #223f3d; }
+    .best-of-breed { fill: #4c73b9; }
+    .headless { fill: #b5caa2; }
+    .composable { fill: #c39753; }
+  </style>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="700" height="400" fill="#f7f7f7" />
+  <rect x="80" y="50" width="550" height="280" class="chart-bg" stroke="#e5e7e3" stroke-width="1" />
+
+  <!-- Y-axis labels -->
+  <text x="75" y="80" class="revenue-label">$75M-$150M</text>
+  <text x="75" y="180" class="revenue-label">$25M-$75M</text>
+  <text x="75" y="280" class="revenue-label">$10M-$25M</text>
+
+  <!-- X-axis labels -->
+  <text x="350" y="350" class="axis-label">Percentage of Brands</text>
+
+  <!-- Horizontal gridlines -->
+  <line x1="80" y1="130" x2="630" y2="130" class="axis" />
+  <line x1="80" y1="230" x2="630" y2="230" class="axis" />
+
+  <!-- Data bars for $10M-$25M -->
+  <rect x="80" y="230" width="150" height="50" class="monolithic" />
+  <rect x="230" y="230" width="140" height="50" class="best-of-breed" />
+  <rect x="370" y="230" width="100" height="50" class="headless" />
+  <rect x="470" y="230" width="80" height="50" class="composable" />
+
+  <!-- Data bars for $25M-$75M -->
+  <rect x="80" y="130" width="120" height="50" class="monolithic" />
+  <rect x="200" y="130" width="150" height="50" class="best-of-breed" />
+  <rect x="350" y="130" width="120" height="50" class="headless" />
+  <rect x="470" y="130" width="100" height="50" class="composable" />
+
+  <!-- Data bars for $75M-$150M -->
+  <rect x="80" y="30" width="80" height="50" class="monolithic" />
+  <rect x="160" y="30" width="130" height="50" class="best-of-breed" />
+  <rect x="290" y="30" width="160" height="50" class="headless" />
+  <rect x="450" y="30" width="130" height="50" class="composable" />
+
+  <!-- Legend -->
+  <rect x="100" y="370" width="12" height="12" class="monolithic" />
+  <text x="120" y="380" class="legend-text">Monolithic Platform-Centric</text>
+
+  <rect x="280" y="370" width="12" height="12" class="best-of-breed" />
+  <text x="300" y="380" class="legend-text">Best-of-Breed Integration</text>
+
+  <rect x="440" y="370" width="12" height="12" class="headless" />
+  <text x="460" y="380" class="legend-text">Headless Implementation</text>
+
+  <rect x="600" y="370" width="12" height="12" class="composable" />
+  <text x="620" y="380" class="legend-text">Composable Commerce</text>
+</svg>

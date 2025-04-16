@@ -1,0 +1,478 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+/* Import Neue Montreal font */
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('https://ext.same-assets.com/1420625560/4183230958.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('https://ext.same-assets.com/1420625560/4183230958.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Updated Brand colors to better match reference */
+    --primary: 34 63 61;          /* #223f3d - corrected darker green/teal */
+    --secondary-sage: 149 158 146; /* #959e92 - corrected sage green */
+    --secondary-mint: 218 206 186; /* #daceba - corrected mint color */
+    --secondary-gold: 201 144 97;  /* #c99061 - corrected gold */
+    --background: 245 246 241;     /* #f5f6f1 - back to original off white */
+    --text-primary: 34 63 61;      /* #223f3d - corrected dark green */
+    --error: 222 74 76;            /* #de4a4c - error red */
+    --success: 76 215 138;         /* #4cd78a - success green */
+    --warning: 246 195 44;         /* #f6c32c - warning yellow */
+
+    /* UI colors */
+    --foreground: 34 63 61;
+    --card: 255 255 255;
+    --card-foreground: 34 63 61;
+    --popover: 255 255 255;
+    --popover-foreground: 34 63 61;
+    --muted: 218 206 186;
+    --muted-foreground: 34 63 61;
+    --border: 218 206 186;
+    --input: 218 206 186;
+    --ring: 201 144 97;
+    --radius: 0.5rem; /* Updated to 0.5rem for rounded cards */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500; /* Montserrat Medium */
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #223f3d;
+    background-color: #f5f6f1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Neue Montreal', sans-serif;
+    font-weight: 700;
+    color: #223f3d;
+    margin-bottom: 0.5em;
+    line-height: 1.2;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  h4 {
+    font-size: 1.25rem;
+  }
+
+  p {
+    margin-bottom: 1em;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+  }
+
+  strong, b {
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .subheading {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+  }
+}
+
+@layer components {
+  /* Card hover effects */
+  .card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Card section styles */
+  .section-card {
+    @apply flex flex-col h-screen w-screen flex-shrink-0 bg-background overflow-hidden snap-center;
+  }
+
+  .section-content {
+    @apply flex flex-col h-full overflow-y-auto;
+    background-color: #f5f6f1; /* Updated background */
+  }
+
+  /* Scrolling container */
+  .horizontal-scroll-container {
+    @apply flex w-full h-full overflow-x-auto snap-x snap-mandatory;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .horizontal-scroll-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Navigation controls */
+  .nav-toggle {
+    @apply fixed bottom-6 left-6 z-50 flex items-center justify-center gap-2 px-4 py-2;
+    background-color: #223f3d;
+    color: #ffffff;
+    transform: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    font-family: 'Neue Montreal', sans-serif;
+    border-radius: 0.5rem;
+  }
+
+  .nav-panel {
+    @apply fixed bottom-0 left-0 right-0 z-40 bg-background border-t border-primary/30 transition-all duration-300 ease-in-out;
+    transform: translateY(100%);
+    max-height: 70vh;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-panel.active {
+    transform: translateY(0);
+  }
+
+  .nav-grid {
+    @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 p-6;
+  }
+
+  .nav-item {
+    @apply overflow-hidden cursor-pointer transition-all duration-200 border-2 border-transparent;
+    border-radius: 0.5rem;
+  }
+
+  .nav-item.active {
+    @apply border-secondary-gold;
+  }
+
+  .nav-item-content {
+    @apply aspect-video bg-primary/10 flex items-center justify-center p-3 text-center;
+  }
+
+  .nav-list {
+    @apply divide-y divide-primary/10 p-4;
+  }
+
+  .nav-list-item {
+    @apply py-3 px-2 cursor-pointer transition-colors hover:bg-primary/5;
+    border-radius: 0.5rem;
+  }
+
+  .nav-list-item.active {
+    @apply bg-primary/10;
+  }
+
+  /* Content layout */
+  .section-header {
+    font-family: 'Neue Montreal', sans-serif;
+    font-weight: 700;
+    background-color: #223f3d;
+    color: white;
+    padding: 1rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .section-title {
+    font-family: 'Neue Montreal', sans-serif;
+    font-weight: 700;
+    color: #223f3d;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #223f3d;
+    margin-bottom: 1rem;
+  }
+
+  /* Content presentation styles */
+  .content-block {
+    @apply max-w-7xl mx-auto w-full;
+  }
+
+  /* Executive Summary Section */
+  .executive-summary-container {
+    background-color: #223f3d;
+    color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .exec-stats-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  @media (min-width: 768px) {
+    .exec-stats-container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .exec-stat-item {
+    background-color: rgba(218, 206, 186, 0.15);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+  }
+
+  /* Data table styling */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .data-table th {
+    background-color: #223f3d;
+    color: #ffffff;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .data-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(34, 63, 61, 0.1);
+    font-size: 0.9rem;
+    background-color: #ffffff;
+  }
+
+  .data-table tr:nth-child(even) td {
+    background-color: #f8f9f6;
+  }
+
+  .data-table tr:hover td {
+    background-color: rgba(218, 206, 186, 0.2);
+  }
+
+  /* Quote styling */
+  blockquote {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    border-left: 4px solid #c99061;
+    font-style: italic;
+    color: rgba(34, 63, 61, 0.8);
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  blockquote:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  }
+
+  blockquote cite {
+    display: block;
+    margin-top: 0.75rem;
+    font-style: normal;
+    font-size: 0.9rem;
+    color: rgba(34, 63, 61, 0.7);
+  }
+
+  /* Mobile responsiveness improvements */
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 1.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-subtitle {
+      font-size: 1.15rem;
+    }
+
+    .exec-stats-container {
+      gap: 0.75rem;
+    }
+
+    .exec-stat-item {
+      padding: 1.25rem;
+    }
+
+    .data-table {
+      font-size: 0.8rem;
+    }
+
+    .data-table th, .data-table td {
+      padding: 0.5rem 0.75rem;
+    }
+
+    /* Improve chart responsiveness */
+    .recharts-wrapper, .recharts-surface {
+      width: 100% !important;
+    }
+  }
+
+  /* Smooth transitions for interactive elements */
+  .transition-smooth {
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Card styles for data presentation */
+  .data-card {
+    background-color: #FFFFFF;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .data-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Callout styles for important information */
+  .callout {
+    background-color: #b7cca6;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    margin: 1.5rem 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .callout:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Integration cards and content blocks */
+  .integration-card {
+    background-color: #FFFFFF;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .integration-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Table styling */
+  .data-table-container {
+    background-color: #FFFFFF;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .data-table-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Tab view controls */
+  .view-tabs {
+    display: flex;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(34, 63, 61, 0.2);
+    width: fit-content;
+  }
+
+  .view-tab {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    background-color: #f5f6f1;
+    color: #223f3d;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .view-tab.active {
+    background-color: #223f3d;
+    color: #f5f6f1;
+  }
+
+  /* Integration ratings */
+  .integration-rating {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: white;
+  }
+
+  .rating-excellent {
+    background-color: #4cd78a;
+  }
+
+  .rating-good {
+    background-color: #c99061;
+  }
+
+  .rating-average {
+    background-color: #f6c32c;
+  }
+
+  /* ROI impact indicators */
+  .roi-impact {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: white;
+  }
+
+  .impact-high {
+    background-color: #4cd78a;
+  }
+
+  .impact-medium {
+    background-color: #f6c32c;
+  }
+}

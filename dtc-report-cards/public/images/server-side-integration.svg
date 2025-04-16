@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Styles -->
+  <style>
+    .box { fill: white; stroke: #d1d5db; stroke-width: 2; }
+    .data-hub { fill: #223f3d; }
+    .data-hub-text { fill: white; }
+    .label { font-family: sans-serif; font-size: 14px; font-weight: 500; text-anchor: middle; fill: #223f3d; }
+    .arrow { stroke: #223f3d; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    .bidirectional { stroke: #4cd78a; stroke-width: 2; fill: none; marker-end: url(#arrowhead-green); marker-start: url(#arrowhead-green-start); }
+    .section-label { font-family: sans-serif; font-size: 12px; font-weight: 400; text-anchor: middle; fill: #223f3d; }
+  </style>
+
+  <!-- Markers for arrows -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#223f3d"/>
+    </marker>
+    <marker id="arrowhead-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4cd78a"/>
+    </marker>
+    <marker id="arrowhead-green-start" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="10 0, 0 3.5, 10 7" fill="#4cd78a"/>
+    </marker>
+  </defs>
+
+  <!-- Center Data Hub -->
+  <rect x="350" y="150" width="100" height="100" rx="5" class="box data-hub"/>
+  <text x="400" y="200" class="label data-hub-text">Server-Side
+    Data Hub</text>
+
+  <!-- Product & Order Data -->
+  <rect x="100" y="50" width="120" height="60" rx="5" class="box"/>
+  <text x="160" y="85" class="label">Product & Order Data</text>
+
+  <!-- Customer Communication -->
+  <rect x="100" y="150" width="120" height="60" rx="5" class="box"/>
+  <text x="160" y="185" class="label">Customer Communication</text>
+
+  <!-- Advertising Platform -->
+  <rect x="100" y="250" width="120" height="60" rx="5" class="box"/>
+  <text x="160" y="285" class="label">Advertising Platform</text>
+
+  <!-- Unified Profiles -->
+  <rect x="580" y="50" width="120" height="60" rx="5" class="box"/>
+  <text x="640" y="85" class="label">Unified Profiles</text>
+
+  <!-- Performance Measurement -->
+  <rect x="580" y="150" width="120" height="60" rx="5" class="box"/>
+  <text x="640" y="185" class="label">Performance Measurement</text>
+
+  <!-- Order & Product Data -->
+  <rect x="580" y="250" width="120" height="60" rx="5" class="box"/>
+  <text x="640" y="285" class="label">Order & Product Data</text>
+
+  <!-- Arrows from left to center -->
+  <line x1="220" y1="80" x2="350" y2="170" class="arrow"/>
+  <line x1="220" y1="180" x2="350" y2="190" class="arrow"/>
+  <line x1="220" y1="280" x2="350" y2="230" class="arrow"/>
+
+  <!-- Arrows from center to right -->
+  <line x1="450" y1="170" x2="580" y2="80" class="arrow"/>
+  <line x1="450" y1="190" x2="580" y2="180" class="arrow"/>
+  <line x1="450" y1="230" x2="580" y2="280" class="arrow"/>
+
+  <!-- Bidirectional Data Synchronization Label -->
+  <rect x="300" y="320" width="200" height="40" rx="20" fill="#f7f7f7" stroke="#d1d5db" stroke-width="1"/>
+  <text x="400" y="345" class="label" style="font-size: 12px;">Bidirectional Data Synchronization</text>
+</svg>
