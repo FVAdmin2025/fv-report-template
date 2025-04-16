@@ -1,8 +1,8 @@
 import type { FC } from "react";
 
 /**
- * Renders HTML that was parsed from the report.
- * Styling is inherited from the surrounding Card / page.
+ * Generic raw‑HTML renderer.
+ * The parent card / page supplies typography & spacing styles.
  */
 const HtmlContent: FC<{ html: string }> = ({ html }) => (
   <div
